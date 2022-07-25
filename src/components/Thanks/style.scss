@@ -1,0 +1,26 @@
+@import "../../styles/global.scss";
+
+.Thanks {
+    @include flex();
+    width: max(200px, 30vw);
+    flex-direction: column;
+
+    .Thanks__selectText {
+        margin: 25px;
+    }
+    .Thanks__title {
+        margin-bottom: 10px;
+    }
+}
+
+.Thanks {
+    text-align: center;
+
+    .Thanks__title,
+    .Thanks__message {
+        color: white;
+    }
+    .Thanks__selectText {
+        color: rgb(251, 116, 19);
+    }
+}
