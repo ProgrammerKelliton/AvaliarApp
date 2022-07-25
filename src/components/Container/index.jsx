@@ -19,7 +19,7 @@ export default function Container() {
                 <span className="note__option">5</span>
             </div>
 
-            <button>Submit</button>
+            <button className="Container__submit">Submit</button>
         </div>
     );
 }
