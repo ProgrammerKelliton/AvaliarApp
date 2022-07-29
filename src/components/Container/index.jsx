@@ -1,7 +1,32 @@
 import "./style.scss";
 import icon from "../../assets/icons/icon-star.svg";
+import { useEffect } from "react";
 
-export default function Container() {
+let receiveFeedback = false;
+
+function ChangeColor(event) {
+    event.target.classList.add("Select");
+}
+
+function Select() {
+    let option = document.querySelectorAll(".note__option");
+
+    option.forEach((element) => {
+        element.addEventListener("click", (e) => {
+            option.forEach((element) => {
+                element.classList.remove("Select");
+            });
+            e.target.classList.add("Select");
+            receiveFeedback = true;
+        });
+    });
+}
+
+export default function Container(props) {
+    useEffect(() => {
+        Select();
+    }, []);
+
     return (
         <div className="Container">
             <img className="Container__icon" src={icon} alt="icon star" />
@@ -19,7 +44,16 @@ export default function Container() {
                 <span className="note__option">5</span>
             </div>
 
-            <button className="Container__submit">Submit</button>
+            <button
+                onClick={() => {
+                    if (receiveFeedback) {
+                        props.onClick();
+                    }
+                }}
+                className="Container__submit"
+            >
+                Submit
+            </button>
         </div>
     );
 }

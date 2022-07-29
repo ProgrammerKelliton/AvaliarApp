@@ -5,7 +5,6 @@ export default function Thanks() {
     return (
         <div className="Thanks">
             <img className="Thanks__icon" src={Icon} alt="" />
-            <span className="Thanks__selectText">You selected X out of X</span>
             <h1 className="Thanks__title">Thank you</h1>
             <p className="Thanks__message">
                 We appreciate you taking the time to give a rating. If you ever

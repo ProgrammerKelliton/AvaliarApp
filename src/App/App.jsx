@@ -1,14 +1,20 @@
 import "./App.scss";
 import Container from "../components/Container";
 import Thanks from "../components/Thanks";
+import { useState } from "react";
 
 function App() {
-    return (
-        <div className="App">
-            {/* <Container></Container> */}
-            <Thanks></Thanks>
-        </div>
-    );
+    let [state, setState] = useState(false);
+
+    function Render(receiveFeedback) {
+        if (receiveFeedback) {
+            return <Thanks></Thanks>;
+        } else {
+            return <Container onClick={() => setState(true)}></Container>;
+        }
+    }
+
+    return <div className="App">{Render(state)}</div>;
 }
 
 export default App;
